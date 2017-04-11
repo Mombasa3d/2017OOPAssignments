@@ -1,0 +1,6 @@
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\RustShaker\ConsoleApp1\bin\Release\RustShaker.exe.config
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\RustShaker\ConsoleApp1\bin\Release\RustShaker.exe
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\RustShaker\ConsoleApp1\bin\Release\RustShaker.pdb
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\RustShaker\ConsoleApp1\obj\Release\RustShaker.csprojResolveAssemblyReference.cache
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\RustShaker\ConsoleApp1\obj\Release\RustShaker.exe
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\RustShaker\ConsoleApp1\obj\Release\RustShaker.pdb

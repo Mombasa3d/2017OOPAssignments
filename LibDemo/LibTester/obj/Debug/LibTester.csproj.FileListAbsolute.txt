@@ -1,0 +1,8 @@
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\bin\Debug\LibTester.exe.config
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\bin\Debug\LibTester.exe
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\bin\Debug\LibTester.pdb
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\bin\Debug\ConyersB_LibDemo.dll
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\bin\Debug\ConyersB_LibDemo.pdb
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\obj\Debug\LibTester.csprojResolveAssemblyReference.cache
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\obj\Debug\LibTester.exe
+c:\Users\Mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibTester\obj\Debug\LibTester.pdb

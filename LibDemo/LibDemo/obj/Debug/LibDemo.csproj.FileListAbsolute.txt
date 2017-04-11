@@ -1,0 +1,5 @@
+c:\users\mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibDemo\bin\Debug\ConyersB_LibDemo.dll
+c:\users\mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibDemo\bin\Debug\ConyersB_LibDemo.pdb
+c:\users\mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibDemo\obj\Debug\LibDemo.csprojResolveAssemblyReference.cache
+c:\users\mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibDemo\obj\Debug\ConyersB_LibDemo.dll
+c:\users\mooba\documents\visual studio 2017\Projects\OOP\LibDemo\LibDemo\obj\Debug\ConyersB_LibDemo.pdb

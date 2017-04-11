@@ -1,0 +1,6 @@
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ScratchConsole\ScratchConsole\bin\Debug\ScratchConsole.exe.config
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ScratchConsole\ScratchConsole\bin\Debug\ScratchConsole.exe
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ScratchConsole\ScratchConsole\bin\Debug\ScratchConsole.pdb
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ScratchConsole\ScratchConsole\obj\Debug\ScratchConsole.csprojResolveAssemblyReference.cache
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ScratchConsole\ScratchConsole\obj\Debug\ScratchConsole.exe
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ScratchConsole\ScratchConsole\obj\Debug\ScratchConsole.pdb
