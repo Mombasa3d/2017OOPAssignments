@@ -10,25 +10,28 @@ using System.Threading.Tasks;
      */
 namespace ScratchConsole
 {
+
+    public enum DemoEnum
+    {
+        First,
+        Second,
+        Third
+    }
+
     class ScratchConsole
     {
-        //Integrals
-        /*byte
-        *short
-        *int
-        *long
-        */
+        public static void Run()
+        {
+            //Select Random Enum 
+            Random rando = new Random();
+            DemoEnum[] demos = (DemoEnum[])Enum.GetValues(typeof(DemoEnum));
 
-        //Floating-points
-        /* 
-         * float
-         * double
-         * decimal
-         */
+            DemoEnum castEnum = (DemoEnum)Enum.Parse(typeof(DemoEnum), "First");
 
-        //Non-numeric
-        /* bool
-         * char
-         */
+            foreach(DemoEnum demo in demos)
+            {
+                Console.WriteLine(demo);
+            }
+        }
     }
 }

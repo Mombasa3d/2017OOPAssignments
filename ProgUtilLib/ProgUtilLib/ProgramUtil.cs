@@ -98,7 +98,6 @@ namespace ProgUtilLib
             {
                 throw new FileNotFoundException("File not found at path " + filePath);
             }
-            FileStream fileStreamSam = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
             StringBuilder sb = new StringBuilder();
             string[] lineReader = File.ReadAllLines(filePath);
             foreach(string s in lineReader)
