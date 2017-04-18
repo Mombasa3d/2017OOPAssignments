@@ -5,13 +5,13 @@ namespace CSC150_ConsoleMenu
 {
     public static class CIO
     {
-        public static int promptForMenuSelection(String prompt, String[] options, bool withQuit)
+        public static int PromptForMenuSelection(IEnumerable<string> options, bool withQuit)
         {
             bool validInput = false;
             bool validEntry = true;
             int menuPick = 0;
             int menuCount = 0;
-            Console.WriteLine(prompt);
+            Console.WriteLine(options);
             do
             {
                 int menuIndex = 1;
