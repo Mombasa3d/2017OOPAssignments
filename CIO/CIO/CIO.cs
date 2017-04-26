@@ -10,10 +10,11 @@ namespace CSC150_ConsoleMenu
             bool validInput = false;
             bool validEntry = true;
             int menuPick = 0;
-            int menuCount = 0;
-            Console.WriteLine(options);
+            Console.WriteLine("Please select an option: ");
             do
             {
+
+                int menuCount = 0;
                 int menuIndex = 1;
                 foreach (String i in options)
                 {
@@ -32,19 +33,26 @@ namespace CSC150_ConsoleMenu
                         menuPick = Int32.Parse(Console.ReadLine());
                         validEntry = true;
                     }
-                    catch (ArgumentException)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine("Please pick a valid menu option!");
-                        validEntry = false;
+                        if (ex is FormatException || ex is ArgumentException)
+                        {
+                            Console.WriteLine("Please pick a valid menu option!");
+                            validEntry = false;
+                        }
                     }
                 } while (!validEntry);
-                if (menuPick > menuCount || menuPick < 0)
+                validInput = (menuPick > menuCount || menuPick < 0) ? false : true;
+                if(!withQuit)
                 {
-                    Console.WriteLine("Please pick a valid menu option! (0 - " + menuIndex + ")");
+                    if(menuPick == 0)
+                    {
+                        validInput = false;
+                    }
                 }
-                else
+                if (!validInput)
                 {
-                    validInput = true;
+                    Console.WriteLine("Please enter a valid menu option");
                 }
             } while (!validInput);
             return menuPick;
@@ -138,7 +146,7 @@ namespace CSC150_ConsoleMenu
             {
                 Console.WriteLine(message);
                 userIn = Console.ReadLine();
-                if(allowEmpty)
+                if (allowEmpty)
                 {
                     userIn = userIn ?? "";
                     validIn = true;
@@ -158,9 +166,9 @@ namespace CSC150_ConsoleMenu
             do
             {
                 Console.WriteLine(message);
-                userChar = Console.ReadKey().KeyChar;
+                userChar = Console.ReadLine().ToCharArray()[0];
                 Console.WriteLine();
-                if(char.IsDigit(userChar) == true)
+                if (char.IsDigit(userChar) == true)
                 {
                     Console.WriteLine("Input must be an alphabetical character.");
                 }

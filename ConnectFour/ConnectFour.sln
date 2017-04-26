@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFour", "ConnectFour\ConnectFour.csproj", "{21C485FA-2EA8-458E-A6A8-473C6A8DE3F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustShaker", "..\RustShaker\ConsoleApp1\RustShaker.csproj", "{BBB3FFD0-8C8F-4F64-8A1E-F5956ED1AD82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21C485FA-2EA8-458E-A6A8-473C6A8DE3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C485FA-2EA8-458E-A6A8-473C6A8DE3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C485FA-2EA8-458E-A6A8-473C6A8DE3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C485FA-2EA8-458E-A6A8-473C6A8DE3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB3FFD0-8C8F-4F64-8A1E-F5956ED1AD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB3FFD0-8C8F-4F64-8A1E-F5956ED1AD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB3FFD0-8C8F-4F64-8A1E-F5956ED1AD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB3FFD0-8C8F-4F64-8A1E-F5956ED1AD82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

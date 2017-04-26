@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38B7D079-F3BA-48C9-BE01-FFBDC7FE8EA8}</ProjectGuid>
+    <ProjectGuid>{21C485FA-2EA8-458E-A6A8-473C6A8DE3F8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ScratchConsole</RootNamespace>
-    <AssemblyName>ScratchConsole</AssemblyName>
+    <RootNamespace>ConnectFour</RootNamespace>
+    <AssemblyName>ConnectFour</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConyersB_ProgUtilLib">
-      <HintPath>..\..\ProgUtilLib\ProgUtilLib\obj\Debug\ConyersB_ProgUtilLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScratchConsole.cs" />
-    <Compile Include="Launcher.cs" />
+    <Compile Include="ConnectoFouro.cs" />
+    <Compile Include="Enums\Piece.cs" />
+    <Compile Include="Enums\PType.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

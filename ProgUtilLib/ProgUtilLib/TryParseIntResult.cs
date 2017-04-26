@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgUtilLib
 {
-    class TryParseIntResult
+    public class TryParseIntResult
     {
         readonly public bool didParse;
         readonly public int? result;

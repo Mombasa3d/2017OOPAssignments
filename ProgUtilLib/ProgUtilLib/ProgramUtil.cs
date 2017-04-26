@@ -7,11 +7,15 @@ using System.IO;
 
 namespace ProgUtilLib
 {
-    class ProgramUtil
+    public class ProgramUtil
     {
 
         public static int ParseInt(string input)
         {
+            if(string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentException("Input is either null or empty");
+            }
             bool negative = false;
             String origInput = input;
             input = input.Trim();
@@ -21,10 +25,11 @@ namespace ProgUtilLib
             }
             input = input.Trim();
             char[] inputArray = input.ToCharArray();
+            char hay = 'a';
             int returnInt = 0;
             int exponentMulti = 0;
             for (int i = inputArray.Length - 1; i >= ((negative) ? 1 : 0); i--)
-            {
+            {   
                 if (inputArray[i] >= '!' && inputArray[i] < '0' || inputArray[i] > '9' && inputArray[i] < 'A'
                         || inputArray[i] > 'Z' && inputArray[i] < 'a' || inputArray[i] > 'z')
                 {

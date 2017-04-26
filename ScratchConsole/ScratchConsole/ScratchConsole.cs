@@ -20,7 +20,7 @@ namespace ScratchConsole
         public static void Run()
         {
 
-            ////Select Random Enum 
+            //Select Random Enum 
             //Random rando = new Random();
             //DemoEnum[] demos = (DemoEnum[])Enum.GetValues(typeof(DemoEnum));
 
@@ -32,24 +32,58 @@ namespace ScratchConsole
             //}
             //List<int> numList = new List<int>();
             //Console.WriteLine("Count: ");
-        }
+            //Console.WriteLine(StringRecursion("Moobadoo"));
 
-        public static string ListParse(List<int> i)
-        {
-            string listInput = "";
-            int count = 0;
-            foreach(int u in i)
+            int[,] tdNums = new int[10, 14];
+
+            int counter = 0;
+            int horiz = 0;
+            string print2D = "";
+            for (int i = 0; i < 10; i++)
             {
-                if(count >= 5)
+                print2D = "";
+                for (int j = 0; j < 14; j++)
                 {
-                    listInput += "\n";
-                    count = 0;
+                    tdNums[i, j] = counter;
+                    print2D += tdNums[i, j] + " ";
+                    counter++;
                 }
-                listInput += u + " ";
-                count++;
+                Console.WriteLine(print2D);
             }
-            return listInput;
-        }
 
+            foreach(int i in tdNums)
+            {
+                Console.WriteLine(i);
+            }
+        }
     }
+
+    //public static string StringRecursion(string r)
+    //{
+    //    string rev = "";
+    //    if (r.Length == 0)
+    //    {
+    //        return rev;
+    //    }
+    //    else
+    //    {
+    //        r.Remove(0, 1);
+    //        rev = StringRecursion(r);
+    //    }
+
+    //}
+
+    //public static int AddRecursion(int a, int b)
+    //{
+    //    if (b == 0)
+    //    {
+    //        return a;
+    //    }
+    //    else
+    //    {
+    //        int c = AddRecursion(++a, --b);
+    //    }
+    //}
+
+
 }

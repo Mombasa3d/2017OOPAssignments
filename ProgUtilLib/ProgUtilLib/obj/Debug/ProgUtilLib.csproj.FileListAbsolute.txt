@@ -1,6 +1,5 @@
-C:\Users\Mooba\documents\visual studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\obj\Debug\ProgUtilLib.csprojResolveAssemblyReference.cache
-C:\Users\Mooba\documents\visual studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\bin\Debug\ConyersB_ProgUtilLib.dll.config
-C:\Users\Mooba\documents\visual studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\bin\Debug\ConyersB_ProgUtilLib.dll
-C:\Users\Mooba\documents\visual studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\bin\Debug\ConyersB_ProgUtilLib.pdb
-C:\Users\Mooba\documents\visual studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\obj\Debug\ConyersB_ProgUtilLib.dll
-C:\Users\Mooba\documents\visual studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\obj\Debug\ConyersB_ProgUtilLib.pdb
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\bin\Debug\ConyersB_ProgUtilLib.dll.config
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\bin\Debug\ConyersB_ProgUtilLib.dll
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\bin\Debug\ConyersB_ProgUtilLib.pdb
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\obj\Debug\ConyersB_ProgUtilLib.dll
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\ProgUtilLib\ProgUtilLib\obj\Debug\ConyersB_ProgUtilLib.pdb

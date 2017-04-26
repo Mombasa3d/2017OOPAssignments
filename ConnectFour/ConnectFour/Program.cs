@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConnectFour
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ConnectoFouro.PrintBoard(ConnectoFouro.board, true);
+        }
+    }
+}

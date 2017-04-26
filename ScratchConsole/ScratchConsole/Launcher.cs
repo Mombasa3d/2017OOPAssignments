@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProgUtilLib;
+using ;
 
 namespace ScratchConsole
 {
@@ -10,7 +12,8 @@ namespace ScratchConsole
     {
         static void Main()
         {
-            ScratchConsole.Run();
+            List<String> sList = new List<string> { "Stri", "ngs", "Are", "Okay" };
+            Console.WriteLine(CSC150_ConsoleMenu.CIO.PromptForMenuSelection(sList, false));
         }
     }
 }
