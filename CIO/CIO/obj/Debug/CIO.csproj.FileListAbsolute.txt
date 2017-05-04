@@ -3,3 +3,4 @@ C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\CIO\CIO\obj\Debug\Conye
 C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\CIO\CIO\bin\Debug\ConyersB_CIO.dll.config
 C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\CIO\CIO\bin\Debug\ConyersB_CIO.dll
 C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\CIO\CIO\obj\Debug\ConyersB_CIO.dll
+C:\Users\Mooba\Documents\Visual Studio 2017\Projects\OOP\CIO\CIO\obj\Debug\CIO.csprojResolveAssemblyReference.cache

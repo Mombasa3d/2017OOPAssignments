@@ -115,7 +115,7 @@ namespace ProgUtilLib
 
         public static void WriteFile(string filePath, string output)
         {
-            if (Path.GetFullPath(filePath) == null)
+            if (string.IsNullOrEmpty(Path.GetFullPath(filePath)))
             {
                 throw new DirectoryNotFoundException("File path (" + filePath + ") is invalid");
             }

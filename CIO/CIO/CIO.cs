@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CSC150_ConsoleMenu
+namespace ConsoleIO
 {
     public static class CIO
     {

@@ -10,6 +10,7 @@ namespace FlashCards
     {
         static void Main(string[] args)
         {
+            FlashCardMain.FlashCardPrompt();
         }
     }
 }
