@@ -46,7 +46,7 @@ namespace FlashCards
         private static void Review()
         {
             bool activeReview = true;
-
+            bool validChar = false;
             do
             {
                 char reviewChoice;
@@ -54,23 +54,20 @@ namespace FlashCards
                 Console.WriteLine(reviewKey + "\n Please press enter to display the definition of " + reviewKey);
                 do
                 {
-                    Console.ReadKey();
                 }
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
-                Console.WriteLine(cardBank.TryGetValue(reviewKey, out reviewKey));
+                //Console.WriteLine(cardBank.TryGetValue(reviewKey, out reviewKey));
+                Console.WriteLine(cardBank[reviewKey]);
                 Console.WriteLine("\nPress [Enter] to display a new card or [b] to return to the main menu:");
                 do
                 {
+                    reviewChoice = Console.ReadKey().KeyChar;
+                    validChar = reviewChoice == 'b' || reviewChoice == 13 ? true : false;
                 }
-                while (Console.ReadKey().Key != ConsoleKey.Enter || Console.ReadKey().Key != ConsoleKey.B);
-                // while (Console.ReadKey(true).Key == ConsoleKey.B || Console.ReadKey(true).Key == ConsoleKey.Enter);
+                while (!validChar);
                 if (reviewChoice == 'b')
                 {
                     activeReview = false;
-                }
-                else
-                {
-                    activeReview = true;
                 }
             }
             while (activeReview);
@@ -151,11 +148,12 @@ namespace FlashCards
             }
             else
             {
-                File.Create(filePath);
+                //File.Create(filePath);
                 StringBuilder saveString = new StringBuilder();
                 foreach (string i in cardBank.Keys)
                 {
-                    saveString.Append(i + " :: " + cardBank.TryGetValue(i, out string value));
+                    saveString.Append(i + " :: " + cardBank[i]);
+                    saveString.AppendLine();
                 }
                 File.WriteAllText(filePath, saveString.ToString());
             }
@@ -166,14 +164,23 @@ namespace FlashCards
             if (File.Exists(filePath))
             {
                 StringBuilder verifyLoad = new StringBuilder();
+                StringBuilder dupliKeys = new StringBuilder();
                 verifyLoad.Append("Successfully loaded cards: \n");
                 string[] fileLines = File.ReadAllLines(filePath);
                 string[] separators = new string[] { " :: " };
                 foreach (string i in fileLines)
                 {
-                    string[] keyAndVal = i.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-                    cardBank.Add(keyAndVal[0], keyAndVal[1]);
-                    verifyLoad.Append(keyAndVal[0] + "\n");
+                    string opString = i.Trim();
+                    string[] keyAndVal = opString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                    if (!cardBank.ContainsKey(keyAndVal[0]))
+                    {
+                        cardBank.Add(keyAndVal[0], keyAndVal[1]);
+                        verifyLoad.Append(keyAndVal[0] + "\n");
+                    }
+                    else
+                    {
+                        dupliKeys.Append(keyAndVal[0]);
+                    }
                 }
                 Console.WriteLine(verifyLoad.ToString());
             }
