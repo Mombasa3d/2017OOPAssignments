@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProgUtilLib;
-using ;
 
 namespace ScratchConsole
 {
@@ -12,8 +11,8 @@ namespace ScratchConsole
     {
         static void Main()
         {
-            List<String> sList = new List<string> { "Stri", "ngs", "Are", "Okay" };
-            Console.WriteLine(CSC150_ConsoleMenu.CIO.PromptForMenuSelection(sList, false));
+            Console.WriteLine(ProgramUtil.ReadFile("C:\\Users\\Mooba\\Documents\\test.txt"));
+
         }
     }
 }

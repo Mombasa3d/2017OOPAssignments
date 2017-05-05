@@ -33,25 +33,17 @@ namespace ProgUtilLib
                 if (inputArray[i] >= '!' && inputArray[i] < '0' || inputArray[i] > '9' && inputArray[i] < 'A'
                         || inputArray[i] > 'Z' && inputArray[i] < 'a' || inputArray[i] > 'z')
                 {
-                    //					System.out.println(input + " contains special characters!");
                     throw new FormatException("Input " + input + " contains special characters!\n");
-
                 }
                 else if (inputArray[i] > '@' && inputArray[i] < '[' || inputArray[i] >= 'a' && inputArray[i] <= 'z')
                 {
-                    //					System.out.println(input + " contains letters!");
                     throw new FormatException("Input " + input + " contains letters!\n");
                 }
-
                 long temp = inputArray[i] - '0';
                 temp *= (long)(Math.Pow(10, exponentMulti));
                 if (temp > Int32.MaxValue || (temp * -1) < Int32.MinValue)
                 {
                     throw new FormatException("Input " + origInput + " is too large/small to be an integer!");
-                }
-                if (returnInt > Int32.MaxValue || returnInt < Int32.MinValue)
-                {
-                    throw new FormatException("Input " + input + "is too large/small to be an integer!");
                 }
                 returnInt += (int)temp;
                 exponentMulti++;
@@ -60,7 +52,10 @@ namespace ProgUtilLib
             {
                 returnInt *= -1;
             }
-
+            if (returnInt > Int32.MaxValue || returnInt < Int32.MinValue)
+            {
+                throw new FormatException("Input " + input + "is too large/small to be an integer!");
+            }
             return returnInt;
         }
 
@@ -107,13 +102,13 @@ namespace ProgUtilLib
             string[] lineReader = File.ReadAllLines(filePath);
             foreach(string s in lineReader)
             {
-                sb.Append(s + "\n");
+                sb.Append(s);
             }
             return sb.ToString();
 
         }
 
-        public static void WriteFile(string filePath, string output)
+        public static void WriteToFile(string filePath, string output)
         {
             if (string.IsNullOrEmpty(Path.GetFullPath(filePath)))
             {
