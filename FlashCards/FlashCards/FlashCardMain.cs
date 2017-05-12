@@ -163,6 +163,7 @@ namespace FlashCards
         {
             if (File.Exists(filePath))
             {
+                cardBank.Clear();
                 StringBuilder verifyLoad = new StringBuilder();
                 StringBuilder dupliKeys = new StringBuilder();
                 verifyLoad.Append("Successfully loaded cards: \n");

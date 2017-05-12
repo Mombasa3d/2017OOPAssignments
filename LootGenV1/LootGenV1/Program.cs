@@ -10,7 +10,7 @@ namespace LootGenV1
     {
         static void Main(string[] args)
         {
-
+            LootGen.MainMenu(); 
         }
     }
 }

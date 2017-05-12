@@ -25,7 +25,6 @@ namespace ProgUtilLib
             }
             input = input.Trim();
             char[] inputArray = input.ToCharArray();
-            char hay = 'a';
             int returnInt = 0;
             int exponentMulti = 0;
             for (int i = inputArray.Length - 1; i >= ((negative) ? 1 : 0); i--)
@@ -98,14 +97,16 @@ namespace ProgUtilLib
             {
                 throw new FileNotFoundException("File not found at path " + filePath);
             }
-            StringBuilder sb = new StringBuilder();
-            string[] lineReader = File.ReadAllLines(filePath);
-            foreach(string s in lineReader)
-            {
-                sb.Append(s);
-            }
-            return sb.ToString();
-
+            //StringBuilder sb = new StringBuilder();
+            //string[] lineReader = File.ReadAllLines(filePath);
+            byte[] fileIn = File.ReadAllBytes(filePath);
+            string returnString = fileIn.ToString();
+            //foreach(string s in lineReader)
+            //{
+            //    sb.Append(s);
+            //}
+            //return sb.ToString();
+            return returnString;
         }
 
         public static void WriteToFile(string filePath, string output)

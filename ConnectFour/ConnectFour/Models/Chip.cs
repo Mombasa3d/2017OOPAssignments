@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LootGenV1
+namespace ConnectFour.Models
 {
-    public class Weapon : Item
+    public enum Chip
     {
+        Red, Yellow, None
     }
 }

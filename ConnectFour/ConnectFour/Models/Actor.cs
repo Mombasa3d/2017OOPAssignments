@@ -7,22 +7,22 @@ using ConnectFour.Enums;
 
 namespace ConnectFour.Models
 {
-    class Player
+    class Actor
     {
-        Random rando = new Random();
+        private Random rando = new Random();
         private string Name { get; set; }
-        private Piece PlayerPiece { get; set; }
-        private PType playerType;
+        private Chip PlayerColor { get; set; }
+        private bool IsHuman { get; set; }
         private string[] defaults = new string[]
         {
             "Bahamut", "Shiva", "Ifrit", "Ramuh", "Garuda", "Titan"
         };
 
-        public Player(string name, Piece pColor, PType organic)
+        public Actor(string name, Chip pColor, bool organic)
         {
             Name = (string.IsNullOrEmpty(name)) ? defaults[rando.Next(0, defaults.Length)] : name;  
-            PlayerPiece = pColor;
-            playerType = organic;
+            PlayerColor = pColor;
+            IsHuman = organic;
 
         }
 
