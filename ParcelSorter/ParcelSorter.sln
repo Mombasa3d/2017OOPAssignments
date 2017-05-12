@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelSorter", "ParcelSorter\ParcelSorter.csproj", "{08EB089A-020E-44BB-BEAA-88E4D72CD204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIO", "..\OOP\CIO\CIO\CIO.csproj", "{E18E39C3-740F-4217-9B1F-CC0FC0AED012}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08EB089A-020E-44BB-BEAA-88E4D72CD204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EB089A-020E-44BB-BEAA-88E4D72CD204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EB089A-020E-44BB-BEAA-88E4D72CD204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EB089A-020E-44BB-BEAA-88E4D72CD204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E18E39C3-740F-4217-9B1F-CC0FC0AED012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18E39C3-740F-4217-9B1F-CC0FC0AED012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18E39C3-740F-4217-9B1F-CC0FC0AED012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18E39C3-740F-4217-9B1F-CC0FC0AED012}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
