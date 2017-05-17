@@ -17,7 +17,9 @@ namespace LootGenV1
         public Potion()
         {
             HealAmount = rando.Next(10, 101);
-            new Item("Health Potion", HealAmount / 10);
+            Item temp = new Item("Health Potion", HealAmount / 10);
+            Name = temp.Name;
+            Value = temp.Value;
         }
         private int HealAmount { get; set; }
 

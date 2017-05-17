@@ -10,7 +10,7 @@ namespace ConnectFour
     {
         static void Main(string[] args)
         {
-            ConnectoFouro.PrintBoard(ConnectoFouro.board, true);
+            
         }
     }
 }

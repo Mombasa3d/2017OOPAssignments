@@ -14,9 +14,9 @@ namespace FlashCards
     class FlashCardMain
     {
         private static Random rando = new Random();
-        private static string[] manageList = new string[] { "Add card", "Remove card", "Save cards", "Load cards", "Main Menu" };
-        private static List<string> menuList = new List<string> { "Manage Flash Cards", "Review", "Exit" };
-        private static Dictionary<string, string> cardBank = new Dictionary<string, string>();
+        private static string[] manageList = new string[] { "Add card", "Remove card", "Save cards", "Load cards", "Reset card", "Reset all cards","Main Menu" };
+        private static List<string> menuList = new List<string> { "Manage Flash Cards", "Review cards", "Review [Hard] cards", "Exit" };
+        private static Dictionary<string, FlashCard> cardBank = new Dictionary<string, FlashCard>();
         private static List<string> hashKeys = new List<string>();
 
         public static void FlashCardPrompt()
@@ -51,6 +51,7 @@ namespace FlashCards
             {
                 char reviewChoice;
                 string reviewKey = cardBank.Keys.ElementAt(rando.Next(cardBank.Count));
+                cardBank[reviewKey].AttemptCount += 1;
                 Console.WriteLine(reviewKey + "\n Please press enter to display the definition of " + reviewKey);
                 do
                 {
@@ -58,6 +59,8 @@ namespace FlashCards
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
                 //Console.WriteLine(cardBank.TryGetValue(reviewKey, out reviewKey));
                 Console.WriteLine(cardBank[reviewKey]);
+                bool isCorrect = ConsoleIO.CIO.PromptForBool($"Did you successfully guess the definition of [reviewKey]?", "Y", "N");
+                cardBank[reviewKey].SuccessCount += (isCorrect) ? 1 : 0 ;
                 Console.WriteLine("\nPress [Enter] to display a new card or [b] to return to the main menu:");
                 do
                 {
@@ -101,6 +104,12 @@ namespace FlashCards
                         manageActive = false;
                         break;
                     case 5:
+                        ResetCard(ConsoleIO.CIO.PromptForInput("Which card would you like to delete?", false));
+                        break;
+                    case 6:
+                        ResetAll(cardBank);
+                        break;
+                    case 7:
                         manageActive = false;
                         break;
                 }
@@ -121,7 +130,7 @@ namespace FlashCards
             {
                 Console.WriteLine("Please enter the definition of the new card: ");
                 string userDef = Console.ReadLine();
-                cardBank.Add(cardIn, userDef);
+                cardBank.Add(cardIn, new FlashCard(cardIn, userDef));
             }
         }
 
@@ -152,10 +161,31 @@ namespace FlashCards
                 StringBuilder saveString = new StringBuilder();
                 foreach (string i in cardBank.Keys)
                 {
-                    saveString.Append(i + " :: " + cardBank[i]);
+                    saveString.Append(" :: " + cardBank[i].Definition + " :: " + cardBank[i].AttemptCount + " :: " + cardBank[i].SuccessCount);
                     saveString.AppendLine();
                 }
                 File.WriteAllText(filePath, saveString.ToString());
+            }
+        }
+
+        private static void ResetCard(string card)
+        {
+            if (hashKeys.Contains(card))
+            {
+                cardBank.Remove(card);
+                Console.WriteLine("${card} was successfully removed!");
+            }
+            else
+            {
+                Console.WriteLine("$Card {card} does not exist in the deck, returning to menu...");
+            }
+        }
+
+        private static void ResetAll(Dictionary<string, FlashCard> deck)
+        {
+            foreach(string i in hashKeys)
+            {
+                deck[i].ResetMastery();
             }
         }
 
@@ -175,7 +205,7 @@ namespace FlashCards
                     string[] keyAndVal = opString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
                     if (!cardBank.ContainsKey(keyAndVal[0]))
                     {
-                        cardBank.Add(keyAndVal[0], keyAndVal[1]);
+                        cardBank.Add(keyAndVal[0], new FlashCard(keyAndVal[0], keyAndVal[1]));
                         verifyLoad.Append(keyAndVal[0] + "\n");
                     }
                     else

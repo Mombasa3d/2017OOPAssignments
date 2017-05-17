@@ -78,7 +78,7 @@ namespace LootGenV1
             foreach (var item in chest)
             {
                 chestSB.Append(item.ToString());
-                chestSB.AppendLine();
+                chestSB.Append("\n");
             }
             return chestSB.ToString();
         }

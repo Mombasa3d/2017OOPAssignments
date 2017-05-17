@@ -28,7 +28,32 @@ namespace ConnectFour.Models
 
         public static void MainMenu()
         {
+            Console.WriteLine("Welcome to Connect Four!\nWhat type of game would you like to play?");
+            int mainMenuChoice = ConsoleIO.CIO.PromptForMenuSelection(new string[] { "Player vs. Player", "Player vs. AI", "AI vs. AI" }, true);
+            bool activeGame = true;
+            switch (mainMenuChoice)
+            {
+                case 1:
+                    do
+                    {
 
+                    } while (activeGame);
+                    break;
+                case 2:
+                    do
+                    {
+
+                    } while (activeGame);
+                    break;
+                case 3:
+                    do
+                    {
+
+                    } while (activeGame);
+                    break;
+                case 0:
+                    break;
+            }
         }
 
         public static void InGameMenu()

@@ -41,7 +41,7 @@ namespace ScratchConsole
             string print2D = "";
             for (int i = 0; i < 10; i++)
             {
-                print2D = "";
+                print2D = "";   
                 for (int j = 0; j < 14; j++)
                 {
                     tdNums[i, j] = counter;

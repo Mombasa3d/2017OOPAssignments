@@ -11,7 +11,7 @@ namespace LootGenV1
         protected int ArmorRating { get; set; }
         protected int DamageReduction { get; set; }
         protected int AgilityModifier { get; set; }
-        private string[] armorNames = new string[]
+        private static string[] armorNames = new string[]
         {
             "Pontiff Knight Armor", "Court Sorceror Robes", "Xanthous Gear", "Grave Warden Armor", "Catarina Armor", "Havel's Armor"
         };
@@ -29,7 +29,10 @@ namespace LootGenV1
             ArmorRating = normalize(8, 17, rando.Next(17));
             DamageReduction = normalize(0, 10, rando.Next(10));
             AgilityModifier = normalize(-6, 0, rando.Next(-7, 0));
-            new Item(armorNames[rando.Next(armorNames.Length - 1)], rando.Next(10, 101));
+            Item temp = new Item(armorNames[rando.Next(armorNames.Length)], rando.Next(10, 101));
+            Name = temp.Name;
+            Value = temp.Value;
+
         }
         public override string ToString()
         {

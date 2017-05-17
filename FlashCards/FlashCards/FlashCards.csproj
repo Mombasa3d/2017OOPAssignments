@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConyersB_CIO">
-      <HintPath>..\..\CIO\CIO\obj\Debug\ConyersB_CIO.dll</HintPath>
-    </Reference>
     <Reference Include="ConyersB_ProgUtilLib">
       <HintPath>..\..\#Libs\ConyersB_ProgUtilLib.dll</HintPath>
     </Reference>
@@ -48,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CIO.cs" />
     <Compile Include="FlashCard.cs" />
     <Compile Include="FlashCardMain.cs" />
     <Compile Include="Program.cs" />

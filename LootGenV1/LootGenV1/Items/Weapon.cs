@@ -36,7 +36,9 @@ namespace LootGenV1
         {
             DamageMin = rando.Next(1, 101);
             DamageMax = rando.Next(DamageMin, 101);
-            new Item(weaponNames[(rando.Next(0, weaponNames.Length))], rando.Next(1, 501));
+            Item temp = new Item(weaponNames[(rando.Next(0, weaponNames.Length))], rando.Next(1, 501));
+            Name = temp.Name;
+            Value = temp.Value;
 
         }
         public override string ToString()

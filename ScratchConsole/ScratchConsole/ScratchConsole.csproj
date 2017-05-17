@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Delegates\Delegates.cs" />
+    <Compile Include="Models\ClassicNewsAnchor.cs" />
+    <Compile Include="Models\MillenialNewsBlogger.cs" />
+    <Compile Include="Models\HeadlineNotifier.cs" />
+    <Compile Include="Models\Stoner.cs" />
     <Compile Include="ScratchConsole.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

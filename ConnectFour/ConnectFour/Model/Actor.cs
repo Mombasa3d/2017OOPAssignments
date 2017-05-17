@@ -7,7 +7,7 @@ using ConnectFour.Enums;
 
 namespace ConnectFour.Models
 {
-    class Actor
+    public class Actor
     {
         private Random rando = new Random();
         private string Name { get; set; }

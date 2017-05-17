@@ -8,11 +8,11 @@ namespace LootGenV1
 {
     public class Item
     {
-        protected string Name { get; set; }
-        protected int Value { get; set; }
-        private string[] itemNames = new string[]
+        public string Name { get; set; }
+        public int Value { get; set; }
+        private static string[] itemNames = new string[]
         {
-            "Black Bug Pellets", "Siegbrau", "Purple Moss Clump", "Black Firebomb", "Gold Pine Resin", "Homeward Bone"
+            "Black Bug Pellets", "Siegbrau", "Purple Moss Clump", "Black Firebomb", "Gold Pine Resin", "Homeward Bone", "Stalk Dung Pie"
         };
         public static Random rando = new Random();
 
@@ -24,7 +24,7 @@ namespace LootGenV1
 
         public Item()
         {
-            Name = itemNames[rando.Next(itemNames.Length - 1)];
+            Name = itemNames[rando.Next(itemNames.Length)];
             Value = rando.Next(25);
         }
 
