@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="CIO.cs" />
     <Compile Include="Items\Armor.cs" />
-    <Compile Include="Items\Item.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Items\Potion.cs" />
     <Compile Include="LootGen.cs" />
     <Compile Include="Program.cs" />

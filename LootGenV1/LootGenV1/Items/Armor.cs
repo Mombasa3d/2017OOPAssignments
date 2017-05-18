@@ -16,12 +16,11 @@ namespace LootGenV1
             "Pontiff Knight Armor", "Court Sorceror Robes", "Xanthous Gear", "Grave Warden Armor", "Catarina Armor", "Havel's Armor"
         };
 
-        public Armor(int ac, int reduction, int agiMod, string name, int value)
+        public Armor(int ac, int reduction, int agiMod, string name, int value) : base(name, value)
         {
             ArmorRating = normalize(8, 17, ac);
             DamageReduction = normalize(0, 10, reduction);
             AgilityModifier = normalize(-6, 0, agiMod);
-            new Item(name, value);
         }
 
         public Armor()

@@ -14,7 +14,7 @@ namespace LootGenV1
         {
             "Notched Blade", "Heysel's Pick", "Demon's Fist", "Court Sorceror's Staff", "Astora Greatsword", "White Hair Talisman", "Moonlight Greatsword", "Dragonslayer Greatbow"
         };
-        public Weapon(int min, int max, string name, int value)
+        public Weapon(int min, int max, string name, int value) : base(name, value)
         {
             DamageMin = (min < 1) ? 1 : min;
             if(max < min)
@@ -29,7 +29,6 @@ namespace LootGenV1
             {
                 DamageMax = max;
             }
-            new Item(name, value);
         }
 
        public Weapon()
