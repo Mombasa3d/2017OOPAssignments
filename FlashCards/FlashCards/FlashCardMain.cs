@@ -58,7 +58,7 @@ namespace FlashCards
                 }
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
                 //Console.WriteLine(cardBank.TryGetValue(reviewKey, out reviewKey));
-                Console.WriteLine(cardBank[reviewKey]);
+                Console.WriteLine(cardBank[reviewKey].ToString());
                 bool isCorrect = ConsoleIO.CIO.PromptForBool($"Did you successfully guess the definition of [reviewKey]?", "Y", "N");
                 cardBank[reviewKey].SuccessCount += (isCorrect) ? 1 : 0 ;
                 Console.WriteLine("\nPress [Enter] to display a new card or [b] to return to the main menu:");
@@ -116,6 +116,15 @@ namespace FlashCards
             }
             while (manageActive);
 
+        }
+
+        private static void ProgressReport()
+        {
+
+            foreach(string i in cardBank.Keys)
+            {
+                
+            }
         }
 
         private static void AddCard()
