@@ -17,6 +17,7 @@ namespace FlashCards
         private static string[] manageList = new string[] { "Add card", "Remove card", "Save cards", "Load cards", "Reset card", "Reset all cards","Main Menu" };
         private static List<string> menuList = new List<string> { "Manage Flash Cards", "Review cards", "Review [Hard] cards", "Exit" };
         private static Dictionary<string, FlashCard> cardBank = new Dictionary<string, FlashCard>();
+        private static Dictionary<string, FlashCard> hardBank = new Dictionary<string, FlashCard>();
         private static List<string> hashKeys = new List<string>();
 
         public static void FlashCardPrompt()
@@ -33,7 +34,17 @@ namespace FlashCards
                         ManageMenu();
                         break;
                     case 2:
-                        Review();
+                        Review(cardBank);
+                        break;
+                    case 3:
+                        if(hardBank.Count() > 0)
+                        {
+                            Review(hardBank);
+                        }
+                        else
+                        {
+                            Console.WriteLine("There are no hard cards in this deck..."s);
+                        }
                         break;
                     case 0:
                         activeMenu = false;
@@ -43,24 +54,32 @@ namespace FlashCards
             while (activeMenu);
         }
 
-        private static void Review()
+        private static void Review(Dictionary<string, FlashCard> bank)
         {
             bool activeReview = true;
             bool validChar = false;
             do
             {
                 char reviewChoice;
-                string reviewKey = cardBank.Keys.ElementAt(rando.Next(cardBank.Count));
-                cardBank[reviewKey].AttemptCount += 1;
+                string reviewKey = bank.Keys.ElementAt(rando.Next(cardBank.Count));
+                bank[reviewKey].AttemptCount += 1;
                 Console.WriteLine(reviewKey + "\n Please press enter to display the definition of " + reviewKey);
                 do
                 {
                 }
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
                 //Console.WriteLine(cardBank.TryGetValue(reviewKey, out reviewKey));
-                Console.WriteLine(cardBank[reviewKey].ToString());
+                Console.WriteLine(bank[reviewKey].ToString());
                 bool isCorrect = ConsoleIO.CIO.PromptForBool($"Did you successfully guess the definition of [reviewKey]?", "Y", "N");
-                cardBank[reviewKey].SuccessCount += (isCorrect) ? 1 : 0 ;
+                bank[reviewKey].SuccessCount += (isCorrect) ? 1 : 0 ;
+                if(bank[reviewKey].Mastery() <= 70.0 && !hardBank.ContainsKey(reviewKey))
+                {
+                    hardBank.Add(reviewKey, bank[reviewKey]);
+                }
+                else if(bank[reviewKey].Mastery() > 70.0 && hardBank.ContainsKey(reviewKey))
+                {
+                    hardBank.Remove(reviewKey);
+                }
                 Console.WriteLine("\nPress [Enter] to display a new card or [b] to return to the main menu:");
                 do
                 {
@@ -68,7 +87,7 @@ namespace FlashCards
                     validChar = reviewChoice == 'b' || reviewChoice == 13 ? true : false;
                 }
                 while (!validChar);
-                if (reviewChoice == 'b')
+                if (reviewChoice == 'b' || bank.Count() < 1)
                 {
                     activeReview = false;
                 }
@@ -120,11 +139,24 @@ namespace FlashCards
 
         private static void ProgressReport()
         {
-
+            List<FlashCard> progList = new List<FlashCard>();
             foreach(string i in cardBank.Keys)
             {
-                
+                progList.Add(cardBank[i]);
             }
+            for(int i = 0; i < 5; i++)
+            {
+                for(int j = 0; j < cardBank.Count; j++)
+                {
+                    if(progList[j].Mastery() > progList[j + 1].Mastery())
+                    {
+                        FlashCard temp = progList[j];
+                        progList[j] = progList[j + 1];
+                        progList[j + 1] = temp;
+                    }
+                }
+            }
+            Console.WriteLine(progList.ToString());
         }
 
         private static void AddCard()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ScratchConsole.Models
 {
-    public class MillenialNewsBlogger
+    public class MillenialNewsBlogger       
     {
         public static void PostStory(string allegedTruth)
         {
