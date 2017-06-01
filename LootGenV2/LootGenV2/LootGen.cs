@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LootGenV2.Characters;
 
 namespace LootGenV2
 {
     class LootGen
     {
         private static Random randomize = new Random();
-        private static string[] mainOptions = new string[] { "Generate [1] loot item", "Generate some loot items", "Generate [n] loot items" };
+        private static string[] mainOptions = new string[] { "Generate [1] loot item", "Generate some loot items", "Generate [n] loot items", "Demonstrate consumables", "Empty Loot Chest" };
         private static List<Item> lootChest = new List<Item>();
 
         public static void MainMenu()
@@ -18,6 +19,7 @@ namespace LootGenV2
             do
             {
                 Console.WriteLine("Welcome to LootGen v1!\n ");
+                Console.WriteLine("$Current loot items: [lootChest.Count]");
                 int mainChoice = ConsoleIO.CIO.PromptForMenuSelection(mainOptions, true);
                 switch (mainChoice)
                 {
@@ -32,6 +34,13 @@ namespace LootGenV2
                     case 3:
                         Generate(ConsoleIO.CIO.PromptForInt("How many loot items would you like to create?", int.MinValue, int.MaxValue), lootChest);
                         Console.WriteLine(PrintChest(lootChest));
+                        break;
+                    case 4:
+                        Monk testChar = new Monk();
+                        Ahriman testFoe = new Ahriman();
+                        break;
+                    case 5:
+                        EmptyChest(lootChest);
                         break;
                     case 0:
                         activeGen = false;

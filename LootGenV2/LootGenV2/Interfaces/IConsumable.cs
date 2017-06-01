@@ -10,8 +10,6 @@ namespace LootGenV2.Interfaces
     interface IConsumable
     {
 
-        //BOIIIIIIIIII hello
-
         void Use(Character input);
         string GetDescription();
 

@@ -14,7 +14,7 @@ namespace LootGenV2.Characters
             throw new NotImplementedException();
         }
 
-        public override int TakeDamage()
+        public override int TakeDamage(int wound)
         {
             throw new NotImplementedException();
         }

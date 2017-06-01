@@ -23,7 +23,7 @@ namespace LootGenV2.Characters
 
         protected Weapon charWep;
         protected Armor charArmor;
-
+        protected int damageReduction = 0;
         protected Random statRando = new Random();
 
         //Properties
@@ -35,12 +35,13 @@ namespace LootGenV2.Characters
         public int IntMod { get; set; }
         public int DexMod { get; set; }
         public int Strength => strBase + strMod;
-        public int Dexterity => dexBase + dexMod;
+        public int Dexterity => dexBase + dexMod - CharArmor.AgilityModifier;
         public int Intelligence => intBase + intMod;
         public int BaseHP { get => baseHP; }
         public int CurrentHP { get => currentHP; set => currentHP = value; }
         public Weapon CharWep { get => charWep; set => charWep = value; }
-
+        public Armor CharArmor { get => charArmor; set => charArmor = value; }
+        public int DamageReduction { get; set; }
         //Constructors
 
         public Character()
@@ -53,6 +54,9 @@ namespace LootGenV2.Characters
             IntMod = 0;
             DexMod = 0;
             CurrentHP = BaseHP;
+            CharWep = new Weapon();
+            CharArmor = new Armor();
+            DamageReduction = CharArmor.DamageReduction;
         }
 
         //Methods
@@ -60,12 +64,7 @@ namespace LootGenV2.Characters
         public abstract int Attack();
         public abstract int TakeDamage(int wound);
 
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-           // sb.Append();
-            return sb.ToString();
-        }
+
 
     }
 }

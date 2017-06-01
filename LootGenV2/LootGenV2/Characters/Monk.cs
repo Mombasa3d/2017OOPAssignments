@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 
 
 namespace LootGenV2.Characters
 {
@@ -11,24 +12,27 @@ namespace LootGenV2.Characters
 
         public Monk()
         {
-            this.Name = "Monk";
-            this.strBase = 25;
-            this.strMod = 7;
-            this.dexBase = 10;
-            this.dexMod = 5;
-            this.intBase = 2;
-            this.intMod = -4;
-            this.CurrentHP = baseHP;
+            Name = "Monk";
+            StrBase = 25;
+            StrMod = 7;
+            DexBase = 10;
+            DexMod = 5;
+            IntBase = 2;
+            IntMod = -4;
+            CurrentHP = baseHP;
+            CharWep = new Weapon();
+            CharArmor = new Armor();
         }
 
         public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.StrBase + StrMod;
         }
 
-        public override int TakeDamage()
+        public override int TakeDamage(int wound)
         {
-            throw new NotImplementedException();
+            CurrentHP -= wound;
+            return wound;
         }
     }
 }
