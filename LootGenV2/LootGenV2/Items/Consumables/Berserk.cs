@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,14 +24,14 @@ namespace LootGenV2.Items.Consumables
         public int RageInt { get; }
         public int RageDex { get; }
 
-        public Berserk(string name, int value) : base(name, value)
+        public Berserk() : base()
         {
             Name = rageNames[rando.Next(rageNames.Length)];
             
             RageStr = rando.Next(4,9);
             RageDex = rando.Next(1, RageStr);
             RageInt = rando.Next(3, 8) * -1;
-            RageHP = rando.Next(2, 10) * -1;
+            RageHP = rando.Next(2, 10) * (RageStr / 2);
             Value = (RageStr * 20);
         }
 
@@ -39,7 +39,7 @@ namespace LootGenV2.Items.Consumables
         {
             if (input.CurrentHP <= 0)
             {
-                Console.WriteLine("$[input.Name] is dead, [Name] has no effect!");
+                Console.WriteLine(input.Name + " is dead, " + Name + " has no effect!");
             }
             else
             {
@@ -47,25 +47,26 @@ namespace LootGenV2.Items.Consumables
                 input.StrMod += RageStr;
                 input.IntMod += RageInt;
                 input.DexMod += RageDex;
-                Console.WriteLine("$[Input.Name] has flown into a rage!");
+                Console.WriteLine(input.Name + " has flown into a rage!");
             }
         }
 
         public string GetDescription()
         {
-            return "Spell scroll that casts a berserk type spell on the user, raising Strength and Dex but reducing Int and sapping health.";
+            return "Spell scroll that casts a berserk type spell on the user,\n raising Str and Dex but reducing Int and sapping HP.";
         }
 
         public override string ToString()
         {
-            return "$===Berserk Scroll===\n" +
-                "$- [Name]\n" +
-                "$== Boosts ==\n" +
-                "$Str: [RageStr]\n" +
-                "$Dex: [RageDex]\n" +
-                "$Int: [RageInt]\n" +
-                "$Health: [RageHP]\n" +
-                GetDescription();
+            return "===Berserk Scroll===\n" +
+                "- " + Name + "\n" +
+                "- Value:" +  Value + "\n" +
+                GetDescription() + "\n" +
+                "== Boosts ==\n" +
+                "- Str: " + RageStr + "\n" +
+                "- Dex: " + RageDex + "\n" +
+                "- Int: " + RageInt + "\n" +
+                "- Self Damage: " + RageHP + "\n";
         }
     }
 }

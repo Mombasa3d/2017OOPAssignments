@@ -3,36 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using 
 
 namespace LootGenV2.Characters
 {
     class Monk : Character
     {
-
-        public Monk()
+        string[] monkNames = new string[]
+            {
+                "Kharazim", "Galuf", "Yda", "Yang", "Sabin"
+            };
+        public Monk() : base()
         {
-            Name = "Monk";
-            StrBase = 25;
-            StrMod = 7;
-            DexBase = 10;
-            DexMod = 5;
-            IntBase = 2;
-            IntMod = -4;
-            CurrentHP = baseHP;
-            CharWep = new Weapon();
-            CharArmor = new Armor();
+            base.Name = monkNames[statRando.Next(monkNames.Length)];
+            base.StrBase = 12;
+            base.StrMod = 7;
+            base.DexBase = 10;
+            base.DexMod = 5;
+            base.IntBase = 2;
+            base.IntMod = -4;
+            base.BaseHP = StrBase * 10;
+            base.CurrentHP = baseHP;
+            base.CharWep = new Weapon();
+            base.CharArmor = new Armor();
+            base.DamageReduction = charArmor.DamageReduction;
+            
         }
 
         public override int Attack()
         {
-            return this.StrBase + StrMod;
+            return Strength;
         }
 
         public override int TakeDamage(int wound)
         {
-            CurrentHP -= wound;
-            return wound;
+            if (CurrentHP < wound - DamageReduction)
+            {
+                Console.WriteLine(Name + " is already deceased!");
+                return 0;
+            }
+            else
+            {
+                int damage = (wound < DamageReduction) ? 0 : wound - DamageReduction;
+                CurrentHP -= damage;
+                Console.WriteLine(Name + " has taken " + damage + " damage!");
+                return damage;
+            }
+        }
+
+        public override string ToString()
+        {
+            return "- " + Name + "\n" +
+             "== Class: Monk ==\n" +
+             "- HP: " + CurrentHP + "/" + BaseHP + "\n" +
+             "- Strength: " + Strength + "\n" +
+             "- Dexterity: " + Dexterity + "\n" +
+             "- Intelligence: " + Intelligence + "\n" +
+             "- Total Damage Reduction: " + DamageReduction + "\n" +
+             charArmor + "\n" +
+             charWep +  "\n";
         }
     }
 }

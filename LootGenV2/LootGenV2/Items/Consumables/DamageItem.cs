@@ -18,10 +18,10 @@ namespace LootGenV2.Items.Consumables
 
         public int DamageValue { get; }
 
-        public DamageItem(string name, int value) : base(name, value)
+        public DamageItem() : base()
         {
             Name = damageItems[rando.Next(damageItems.Length)];
-            DamageValue = rando.Next(11);
+            DamageValue = rando.Next(4, 11) * 5;
             Value = DamageValue * 12;
         }
 
@@ -29,23 +29,26 @@ namespace LootGenV2.Items.Consumables
         {
             if(input.CurrentHP > 0)
             {
-                input.TakeDamage(damageValue);
-                Console.WriteLine("$[value.Name] has lost [damageValue] HP");
+                input.TakeDamage(DamageValue);
+            }
+            else
+            {
+                Console.WriteLine(input.Name + " is already incapacitated, " + Name + " does no damage!");
             }
 
         }
 
         public string GetDescription()
         {
-            return "$Spell scroll that casts the [this.Name] spell, causing magic damage to the target";
+            return "Spell scroll that casts the " + Name + " spell, causing magic damage to the target.";
         }
 
         public override string ToString()
         {
-            return "$===Damage Scroll===\n" +
-                "$- [Name]\n" +
-                "Damage: [DamageValue]\n" +
-                "Value: [Value]\n" +
+            return "===Damage Scroll===\n" +
+                "- " + Name + "\n" +
+                "- Damage: " + DamageValue + "\n" +
+                "- Value: " + Value + "\n" +
                 GetDescription();
         }
     }

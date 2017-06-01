@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="Characters\Ahriman.cs" />
     <Compile Include="Characters\Character.cs" />
-    <Compile Include="Characters\Malboro.cs" />
+    <Compile Include="Characters\Automaton.cs" />
     <Compile Include="Characters\Monk.cs" />
     <Compile Include="CIO.cs" />
     <Compile Include="Interfaces\IConsumable.cs" />

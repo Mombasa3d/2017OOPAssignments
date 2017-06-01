@@ -27,14 +27,14 @@ namespace LootGenV2
         {
             ArmorRating = normalize(8, 17, ac);
             DamageReduction = normalize(0, 10, reduction);
-            AgilityModifier = normalize(-6, 0, agiMod);
+            AgilityModifier = normalize(-15, -3, agiMod);
         }
 
         public Armor()
         {
             ArmorRating = normalize(8, 17, rando.Next(17));
             DamageReduction = normalize(0, 10, rando.Next(10));
-            AgilityModifier = normalize(-6, 0, rando.Next(-7, 0));
+            AgilityModifier = normalize(-15, -3, rando.Next(-7, 0));
             Item temp = new Item(armorNames[rando.Next(armorNames.Length)], rando.Next(10, 101));
             Name = temp.Name;
             Value = temp.Value;
@@ -47,10 +47,10 @@ namespace LootGenV2
         {
             StringBuilder potString = new StringBuilder();
             potString.Append("== Armor ==\n");
-            potString.Append("- Name: " + this.Name + "\n");
-            potString.Append("- Armor Rating: " + this.ArmorRating + "\n");
-            potString.Append("- Damage Reduction: " + this.DamageReduction + "\n");
-            potString.Append("- Agility Modifier: " + this.AgilityModifier + "\n");
+            potString.Append("- Name: " + Name + "\n");
+            potString.Append("- Armor Rating: " + ArmorRating + "\n");
+            potString.Append("- DR: " + DamageReduction + "\n");
+            potString.Append("- Agility Modifier: " + AgilityModifier + "\n");
             potString.Append("- Value: " + Value);
             return potString.ToString();
         }

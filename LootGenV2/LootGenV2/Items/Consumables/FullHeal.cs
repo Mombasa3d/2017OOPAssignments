@@ -6,15 +6,15 @@ using LootGenV2.Characters;
 using LootGenV2.Interfaces;
 using LootGenV2;
 
-namespace LootGenerator2.Items.Consumables
+namespace LootGenV2.Items.Consumables
 {
-    class Megalixir :  Item , IConsumable
+    class FullHeal :  Item , IConsumable
     {
 
-        public Megalixir(string name, int value) : base(name, value)
+        public FullHeal() : base()
         {
-            Name = "Megalixir";
-            Value = value;
+            Name = "FullHeal";
+            Value = 500;
         }
         
         public string GetDescription()
@@ -24,15 +24,26 @@ namespace LootGenerator2.Items.Consumables
 
         public void Use(Character input)
         {
-            if (input.CurrentHP <= 0)
+            if (input.CurrentHP > 0)
             {
                 input.CurrentHP = input.BaseHP;
-                Console.WriteLine("$[input] recovered all of their health!");
+                Console.WriteLine(input.Name + " has recovered all of their health!");
+            }
+            else if (input.CurrentHP == input.BaseHP)
+            {
+                Console.WriteLine(input.Name + " is already at full health! " + Name + " has no effect!");
             }
             else
             {
-
+                Console.WriteLine(input.Name + " is KO'd, " + Name + " has no effect!");
             }
+        }
+
+        public override string ToString()
+        {
+            return "=== Full Heal ===\n" +
+                "- Value: " + Value + "\n" +
+                "- " + GetDescription();
         }
     }
 }

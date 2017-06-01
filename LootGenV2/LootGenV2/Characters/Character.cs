@@ -34,10 +34,10 @@ namespace LootGenV2.Characters
         public int StrMod { get; set; }
         public int IntMod { get; set; }
         public int DexMod { get; set; }
-        public int Strength => strBase + strMod;
-        public int Dexterity => dexBase + dexMod - CharArmor.AgilityModifier;
-        public int Intelligence => intBase + intMod;
-        public int BaseHP { get => baseHP; }
+        public int Strength { get => StrBase + StrMod; }
+        public int Dexterity { get => DexBase + DexMod - CharArmor.AgilityModifier; }
+        public int Intelligence { get => IntBase + IntMod; }
+        public int BaseHP { get => baseHP; set => baseHP = value; }
         public int CurrentHP { get => currentHP; set => currentHP = value; }
         public Weapon CharWep { get => charWep; set => charWep = value; }
         public Armor CharArmor { get => charArmor; set => charArmor = value; }
@@ -46,7 +46,7 @@ namespace LootGenV2.Characters
 
         public Character()
         {
-            this.baseHP = strBase * 10;
+            BaseHP = strBase * 10;
             StrBase = statRando.Next(3, 31);
             IntBase = statRando.Next(3, 31);
             DexBase = statRando.Next(3, 31);
