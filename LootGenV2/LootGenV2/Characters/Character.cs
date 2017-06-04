@@ -31,9 +31,9 @@ namespace LootGenV2.Characters
         public int StrBase { get; set; }
         public int IntBase { get; set; }
         public int DexBase { get; set; }
-        public int StrMod { get; set; }
-        public int IntMod { get; set; }
-        public int DexMod { get; set; }
+        public int StrMod { get => strMod; set => strMod = value; }
+        public int IntMod { get => intMod; set => intMod = value; }
+        public int DexMod { get => dexMod; set => dexMod = value; }
         public int Strength { get => StrBase + StrMod; }
         public int Dexterity { get => DexBase + DexMod - CharArmor.AgilityModifier; }
         public int Intelligence { get => IntBase + IntMod; }

@@ -25,8 +25,8 @@ namespace ProgUtilLib
             }
             input = input.Trim();
             char[] inputArray = input.ToCharArray();
-            int returnInt = 0;
-            int exponentMulti = 0;
+            long returnInt = 0;
+            long exponentMulti = 0;
             for (int i = inputArray.Length - 1; i >= ((negative) ? 1 : 0); i--)
             {   
                 if (inputArray[i] >= '!' && inputArray[i] < '0' || inputArray[i] > '9' && inputArray[i] < 'A'
@@ -44,7 +44,7 @@ namespace ProgUtilLib
                 {
                     throw new FormatException("Input " + origInput + " is too large/small to be an integer!");
                 }
-                returnInt += (int)temp;
+                returnInt += temp;
                 exponentMulti++;
             }
             if (negative)
@@ -55,7 +55,7 @@ namespace ProgUtilLib
             {
                 throw new FormatException("Input " + input + "is too large/small to be an integer!");
             }
-            return returnInt;
+            return (int)returnInt;
         }
 
         public static TryParseIntResult TryParseInt(string input)
@@ -97,15 +97,8 @@ namespace ProgUtilLib
             {
                 throw new FileNotFoundException("File not found at path " + filePath);
             }
-            //StringBuilder sb = new StringBuilder();
-            //string[] lineReader = File.ReadAllLines(filePath);
             byte[] fileIn = File.ReadAllBytes(filePath);
-            string returnString = fileIn.ToString();
-            //foreach(string s in lineReader)
-            //{
-            //    sb.Append(s);
-            //}
-            //return sb.ToString();
+            string returnString = System.Text.Encoding.UTF8.GetString(fileIn);
             return returnString;
         }
 

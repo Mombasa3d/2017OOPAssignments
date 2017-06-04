@@ -17,7 +17,7 @@ namespace LootGenV2.Characters
 
         public Voidsent() : base()
         {
-            Name = voidsentNames[statRando.Next(voidsentNames.Length)];
+            this.Name = voidsentNames[statRando.Next(voidsentNames.Length)];
             StrMod = statRando.Next(2, 10);
             IntMod = statRando.Next(5, 16);
             DexMod = statRando.Next(1, 6);

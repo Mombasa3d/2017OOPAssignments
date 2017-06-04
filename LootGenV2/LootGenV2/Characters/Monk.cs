@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LootGenV2.Characters
 {
-    class Monk : Character
+    public class Monk : Character
     {
         string[] monkNames = new string[]
             {
