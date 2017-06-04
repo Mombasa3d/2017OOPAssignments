@@ -24,15 +24,16 @@ namespace LootGenV2.Items.Consumables
 
         public void Use(Character input)
         {
-            if (input.CurrentHP > 0)
+            if (input.CurrentHP == input.BaseHP)
+            {
+                Console.WriteLine(input.Name + " is already at full health! " + Name + " has no effect!");
+            }
+            else if (input.CurrentHP > 0)
             {
                 input.CurrentHP = input.BaseHP;
                 Console.WriteLine(input.Name + " has recovered all of their health!");
             }
-            else if (input.CurrentHP == input.BaseHP)
-            {
-                Console.WriteLine(input.Name + " is already at full health! " + Name + " has no effect!");
-            }
+
             else
             {
                 Console.WriteLine(input.Name + " is KO'd, " + Name + " has no effect!");

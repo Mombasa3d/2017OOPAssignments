@@ -25,16 +25,16 @@ namespace LootGenV2
 
         public Armor(int ac, int reduction, int agiMod, string name, int value) : base(name, value)
         {
-            ArmorRating = normalize(8, 17, ac);
-            DamageReduction = normalize(0, 10, reduction);
-            AgilityModifier = normalize(-15, -3, agiMod);
+            ArmorRating = Normalize(8, 17, ac);
+            DamageReduction = Normalize(0, 10, reduction);
+            AgilityModifier = Normalize(-15, -3, agiMod);
         }
 
         public Armor()
         {
-            ArmorRating = normalize(8, 17, rando.Next(17));
-            DamageReduction = normalize(0, 10, rando.Next(10));
-            AgilityModifier = normalize(-15, -3, rando.Next(-7, 0));
+            ArmorRating = Normalize(8, 17, rando.Next(17));
+            DamageReduction = Normalize(0, 10, rando.Next(10));
+            AgilityModifier = Normalize(-15, -3, rando.Next(-7, 0));
             Item temp = new Item(armorNames[rando.Next(armorNames.Length)], rando.Next(10, 101));
             Name = temp.Name;
             Value = temp.Value;
