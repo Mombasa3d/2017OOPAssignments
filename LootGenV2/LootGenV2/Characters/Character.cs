@@ -27,7 +27,7 @@ namespace LootGenV2.Characters
         protected Random statRando = new Random();
 
         //Properties
-        public string Name { get; set; }
+        public string Name { get => name; set => name = (string.IsNullOrEmpty(value) ? "Default" : value); }
         public int StrBase { get; set; }
         public int IntBase { get; set; }
         public int DexBase { get; set; }
@@ -37,7 +37,7 @@ namespace LootGenV2.Characters
         public int Strength { get => StrBase + StrMod; }
         public int Dexterity { get => DexBase + DexMod - CharArmor.AgilityModifier; }
         public int Intelligence { get => IntBase + IntMod; }
-        public int BaseHP { get => baseHP; set => baseHP = value; }
+        public int BaseHP { get => baseHP; set => baseHP = (value <= 0) ? 10 : value; }
         public int CurrentHP { get => currentHP; set => currentHP = value; }
         public Weapon CharWep { get => charWep; set => charWep = value; }
         public Armor CharArmor { get => charArmor; set => charArmor = value; }

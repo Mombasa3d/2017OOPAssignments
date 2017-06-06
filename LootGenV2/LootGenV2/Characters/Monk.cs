@@ -44,7 +44,7 @@ namespace LootGenV2.Characters
             else
             {
                 int damage = (wound < DamageReduction) ? 0 : wound - DamageReduction;
-                CurrentHP -= damage;
+                CurrentHP = ((CurrentHP - damage) < 0) ? 0 : CurrentHP - damage;
                 Console.WriteLine(Name + " has taken " + damage + " damage!");
                 return damage;
             }

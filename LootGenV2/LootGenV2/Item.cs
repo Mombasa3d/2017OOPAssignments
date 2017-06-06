@@ -8,8 +8,11 @@ namespace LootGenV2
 {
     public class Item
     {
-        public string Name { get; set; }
-        public int Value { get; set; }
+        private string name;
+        private int value;
+
+        public string Name { get => name; set => name = (string.IsNullOrWhiteSpace(value)) ? "Default" : value; }
+        public int Value { get => value; set => this.value = (value < 0) ? 0 : value; }
         private static string[] itemNames = new string[]
         {
             "Black Bug Pellets", "Siegbrau", "Purple Moss Clump", "Black Firebomb", "Gold Pine Resin", "Homeward Bone", "Stalk Dung Pie"
@@ -28,7 +31,7 @@ namespace LootGenV2
             Value = rando.Next(25);
         }
 
-        protected int normalize(int max, int min, int input)
+        protected int Normalize(int max, int min, int input)
         {
             if (input < min)
             {
