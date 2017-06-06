@@ -36,9 +36,9 @@ namespace LootGenV2.Characters
 
         public override int TakeDamage(int wound)
         {
-            if (CurrentHP < wound - DamageReduction)
+            if (CurrentHP <= 0)
             {
-                Console.WriteLine(Name + " is already deceased!");
+                Console.WriteLine(Name + " is already dead!");
                 return 0;
             }
             else
