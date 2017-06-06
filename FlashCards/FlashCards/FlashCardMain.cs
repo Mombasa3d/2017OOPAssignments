@@ -34,7 +34,14 @@ namespace FlashCards
                         ManageMenu();
                         break;
                     case 2:
-                        Review(cardBank);
+                        if (cardBank.Count() > 0)
+                        {
+                            Review(cardBank);
+                        }
+                        else
+                        {
+                            Console.WriteLine("There are no cards in this deck...");
+                        }
                         break;
                     case 3:
                         if(hardBank.Count() > 0)
@@ -43,7 +50,7 @@ namespace FlashCards
                         }
                         else
                         {
-                            Console.WriteLine("There are no hard cards in this deck..."s);
+                            Console.WriteLine("There are no hard cards in this deck...");
                         }
                         break;
                     case 0:
@@ -113,9 +120,17 @@ namespace FlashCards
                         manageActive = false;
                         break;
                     case 3:
-                        Console.WriteLine("Please enter save file path: (filepath and filename) ");
-                        SaveCards(Console.ReadLine());
-                        manageActive = false;
+                        if (cardBank.Count > 0)
+                        {
+                            Console.WriteLine("Please enter save file path: (filepath and filename) ");
+                            SaveCards(Console.ReadLine());
+                            manageActive = false;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("There are no cards to save");
+                        }
                         break;
                     case 4:
                         Console.WriteLine("Please enter load path: (ex: C:\\directory\\file.txt) ");
