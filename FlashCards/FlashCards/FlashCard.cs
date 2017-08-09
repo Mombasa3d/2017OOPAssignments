@@ -29,7 +29,16 @@ namespace FlashCards
 
         public float Mastery()
         {
-            float rating = (this.SuccessCount / this.AttemptCount) * 100;
+            float rating;
+            if(AttemptCount == 0)
+            {
+                rating = 0;
+            }
+            else
+            {
+                rating = (this.SuccessCount / this.AttemptCount) * 100;
+            }
+
             return rating;
         }
 

@@ -14,8 +14,8 @@ namespace FlashCards
     class FlashCardMain
     {
         private static Random rando = new Random();
-        private static string[] manageList = new string[] { "Add card", "Remove card", "Save cards", "Load cards", "Reset card", "Reset all cards","Main Menu" };
-        private static List<string> menuList = new List<string> { "Manage Flash Cards", "Review cards", "Review [Hard] cards", "Exit" };
+        private static string[] manageList = new string[] { "Add card", "Remove card", "Save cards", "Load cards", "Reset card", "Reset all cards", "Main Menu" };
+        private static List<string> menuList = new List<string> { "Manage Flash Cards", "Review cards", "Review [Hard] cards", "Progress Report", "Exit" };
         private static Dictionary<string, FlashCard> cardBank = new Dictionary<string, FlashCard>();
         private static Dictionary<string, FlashCard> hardBank = new Dictionary<string, FlashCard>();
         private static List<string> hashKeys = new List<string>();
@@ -44,13 +44,23 @@ namespace FlashCards
                         }
                         break;
                     case 3:
-                        if(hardBank.Count() > 0)
+                        if (hardBank.Count() > 0)
                         {
                             Review(hardBank);
                         }
                         else
                         {
                             Console.WriteLine("There are no hard cards in this deck...");
+                        }
+                        break;
+                    case 4:
+                        if (cardBank.Count > 0)
+                        {
+                            ProgressReport();
+                        }
+                        else
+                        {
+                            Console.WriteLine("There are no cards to review! Please load or add some cards first.");
                         }
                         break;
                     case 0:
@@ -76,14 +86,14 @@ namespace FlashCards
                 }
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
                 //Console.WriteLine(cardBank.TryGetValue(reviewKey, out reviewKey));
-                Console.WriteLine(bank[reviewKey].ToString());
-                bool isCorrect = ConsoleIO.CIO.PromptForBool($"Did you successfully guess the definition of [reviewKey]?", "Y", "N");
-                bank[reviewKey].SuccessCount += (isCorrect) ? 1 : 0 ;
-                if(bank[reviewKey].Mastery() <= 70.0 && !hardBank.ContainsKey(reviewKey))
+                Console.WriteLine(bank[reviewKey].Definition.ToString());
+                bool isCorrect = ConsoleIO.CIO.PromptForBool("Did you successfully guess the definition of " + reviewKey + "?", "Y", "N");
+                bank[reviewKey].SuccessCount += (isCorrect) ? 1 : 0;
+                if (bank[reviewKey].Mastery() <= 70.0 && !hardBank.ContainsKey(reviewKey))
                 {
                     hardBank.Add(reviewKey, bank[reviewKey]);
                 }
-                else if(bank[reviewKey].Mastery() > 70.0 && hardBank.ContainsKey(reviewKey))
+                else if (bank[reviewKey].Mastery() > 70.0 && hardBank.ContainsKey(reviewKey))
                 {
                     hardBank.Remove(reviewKey);
                 }
@@ -155,15 +165,15 @@ namespace FlashCards
         private static void ProgressReport()
         {
             List<FlashCard> progList = new List<FlashCard>();
-            foreach(string i in cardBank.Keys)
+            foreach (string i in cardBank.Keys)
             {
                 progList.Add(cardBank[i]);
             }
-            for(int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for(int j = 0; j < cardBank.Count; j++)
+                for (int j = 0; j < cardBank.Count - 1; j++)
                 {
-                    if(progList[j].Mastery() > progList[j + 1].Mastery())
+                    if (progList[j].Mastery() > progList[j + 1].Mastery())
                     {
                         FlashCard temp = progList[j];
                         progList[j] = progList[j + 1];
@@ -171,7 +181,10 @@ namespace FlashCards
                     }
                 }
             }
-            Console.WriteLine(progList.ToString());
+            foreach (FlashCard f in progList)
+            {
+                Console.WriteLine(f.Keyword + ": " + f.Mastery().ToString("F"));
+            }
         }
 
         private static void AddCard()
@@ -239,7 +252,7 @@ namespace FlashCards
 
         private static void ResetAll(Dictionary<string, FlashCard> deck)
         {
-            foreach(string i in hashKeys)
+            foreach (string i in hashKeys)
             {
                 deck[i].ResetMastery();
             }

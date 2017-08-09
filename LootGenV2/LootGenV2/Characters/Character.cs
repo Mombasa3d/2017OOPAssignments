@@ -38,7 +38,7 @@ namespace LootGenV2.Characters
         public int Dexterity { get => DexBase + DexMod - CharArmor.AgilityModifier; }
         public int Intelligence { get => IntBase + IntMod; }
         public int BaseHP { get => baseHP; set => baseHP = (value <= 0) ? 10 : value; }
-        public int CurrentHP { get => currentHP; set => currentHP = (currentHP + value > BaseHP) ? BaseHP  : currentHP + value; }
+        public int CurrentHP { get => currentHP; set => currentHP = value; }
         public Weapon CharWep { get => charWep; set => charWep = value; }
         public Armor CharArmor { get => charArmor; set => charArmor = value; }
         public int DamageReduction { get; set; }

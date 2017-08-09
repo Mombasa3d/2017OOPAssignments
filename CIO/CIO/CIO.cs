@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleIO
+namespace CSC160_ConsoleMenu
 {
     public static class CIO
     {
@@ -43,9 +43,9 @@ namespace ConsoleIO
                     }
                 } while (!validEntry);
                 validInput = (menuPick > menuCount || menuPick < 0) ? false : true;
-                if(!withQuit)
+                if (!withQuit)
                 {
-                    if(menuPick == 0)
+                    if (menuPick == 0)
                     {
                         validInput = false;
                     }
@@ -68,7 +68,7 @@ namespace ConsoleIO
                 try
                 {
                     userIn = Console.ReadLine();
-                    validBool = (userIn == null | userIn.Equals("")) ? true : false;
+                    validBool = (String.IsNullOrEmpty(userIn)) ? true : false;
                 }
                 catch (FormatException)
                 {
@@ -123,11 +123,11 @@ namespace ConsoleIO
                 }
                 catch (ArgumentException)
                 {
-                    Console.WriteLine("Please enter a valid decimal between " + min + " and " + max);
+                    Console.WriteLine("Please enter a valid number between " + min + " and " + max);
                 }
                 if (userChoice > max || userChoice < min)
                 {
-                    Console.WriteLine("Please enter a valid decimal between " + min + " and " + max);
+                    Console.WriteLine("Please enter a valid number between " + min + " and " + max);
                 }
                 else
                 {

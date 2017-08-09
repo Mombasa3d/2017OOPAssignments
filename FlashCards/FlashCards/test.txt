@@ -1,0 +1,5 @@
+Heck :: Bleck :: 0 :: 1
+Snek :: Blek :: 2 :: 4
+Hell :: Bell :: 5 :: 10
+Wow :: Amazing ::
+Abc :: Def :: 0

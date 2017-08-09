@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 //Namespace: Virtual equivalent to Packages
 
 /*
@@ -15,46 +16,41 @@ namespace ScratchConsole
         Third
     }
 
+    public class Person
+    {
+        public string firstName = "Paul";
+        public string lastNme = "Fox";
+        public string email = "Mombasa3d@gmail.com";
+        public bool status = true;
+        public int idNo;
+
+        public Person(int id)
+        {
+            idNo = id;
+        }
+    }
+
+
     class ScratchConsole
     {
         public static void Run()
         {
-
-            //Select Random Enum 
-            //Random rando = new Random();
-            //DemoEnum[] demos = (DemoEnum[])Enum.GetValues(typeof(DemoEnum));
-
-            //DemoEnum castEnum = (DemoEnum)Enum.Parse(typeof(DemoEnum), "First");
-
-            //foreach (DemoEnum demo in demos)
-            //{
-            //    Console.WriteLine(demo);
-            //}
-            //List<int> numList = new List<int>();
-            //Console.WriteLine("Count: ");
-            //Console.WriteLine(StringRecursion("Moobadoo"));
-
-            int[,] tdNums = new int[10, 14];
-
-            int counter = 0;
-            int horiz = 0;
-            string print2D = "";
-            for (int i = 0; i < 10; i++)
+            int idCount = 0;
+            do
             {
-                print2D = "";   
-                for (int j = 0; j < 14; j++)
-                {
-                    tdNums[i, j] = counter;
-                    print2D += tdNums[i, j] + " ";
-                    counter++;
-                }
-                Console.WriteLine(print2D);
-            }
+                PersonWrite(new Person(idCount));
+                idCount += 1;
+            } while (idCount < 1002);
+        }
 
-            foreach(int i in tdNums)
-            {
-                Console.WriteLine(i);
-            }
+        public static void PersonWrite(Person subject)
+        {
+            string fileIn = subject.firstName + " " + subject.lastNme + "\n" +
+                subject.email + "\n" +
+                subject.status + "\n" +
+                subject.idNo;
+            File.WriteAllText("C:\\Users\\Mooba\\Documents\\DBTTest\\" + subject.idNo + ".txt", fileIn);
+
         }
     }
 

@@ -12,7 +12,7 @@ namespace ScratchConsole
     {
         static void Main()
         {
-            Console.WriteLine(ProgramUtil.ReadFile("C:\\Users\\Mooba\\Documents\\Visual Studio 2017\\Projects\\test.txt"));
+            ScratchConsole.Run();
         }
 
         public static void Run()
